@@ -24,8 +24,12 @@ jobs:
           node-version: 22
           cache: 'pnpm'
 
+      - run: npm i -g --force corepack && corepack enable
       - name: Install dependencies
-        run: pnpm install
+        run: npx nuxi@latest module add @nuxthub/core
+      - name: add @nuxthub/core to .nuxtrc
+        run : echo "modules[]= @nuxthub/core" >> .nuxtrc
+
 
       - name: Build application
         run: pnpm build
