@@ -10,7 +10,7 @@
     "preview": "nuxt preview"
   },
   "dependencies": {
-    "@nuxt/content": "https://pkg.pr.new/@nuxt/content@7e46caf",
+    "@nuxt/content": "^3.2.0",
     "nuxt": "^3.15.4"
   }
 }
