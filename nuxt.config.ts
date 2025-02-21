@@ -1,8 +1,16 @@
+import packageJson from './package.json'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
   ],
+  runtimeConfig: {
+    public: {
+      builtAt: new Date().toISOString(),
+      dependencies: packageJson.dependencies,
+    }
+  },
   devtools: { enabled: true },
   future: {
     compatibilityVersion: 4,

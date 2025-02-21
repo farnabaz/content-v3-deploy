@@ -1,5 +1,14 @@
 <script setup lang="ts">
 const route = useRoute()
+const { builtAt, dependencies } = useRuntimeConfig().public
+
+const buildInfo = computed(() => {
+  return [
+    `Nuxt: ${dependencies['nuxt']}`,
+    `Content: ${dependencies['@nuxt/content']}`,
+    `Built at ${builtAt}`,
+  ].join('\n')
+})
 
 const { data: page } = await useAsyncData('page-' + route.path, () => {
   return queryCollection('content').path(route.path).first()
@@ -15,4 +24,6 @@ if (!page.value) {
     v-if="page"
     :value="page"
   />
+  <hr/>
+  <pre>{{ buildInfo }}</pre>
 </template>
