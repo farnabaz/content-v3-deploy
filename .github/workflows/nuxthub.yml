@@ -26,7 +26,8 @@ jobs:
 
       - run: npm i -g --force corepack && corepack enable
       - name: Install dependencies
-        run: npx nuxi@latest module add @nuxthub/core
+        run: pnpm i
+      - run: npx nuxi@latest module add @nuxthub/core
       - name: add @nuxthub/core to .nuxtrc
         run : echo "modules[]= @nuxthub/core" >> .nuxtrc
 
