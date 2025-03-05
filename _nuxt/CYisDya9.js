@@ -1,0 +1,1 @@
+import{l as s,f as r,k as t,V as n}from"./DLUN2Idy.js";const o={};function a(e,c){return t(),r("th",null,[n(e.$slots,"default")])}const _=Object.assign(s(o,[["render",a]]),{__name:"ProseTh"});export{_ as default};
