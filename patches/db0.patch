@@ -1,0 +1,50 @@
+diff --git a/dist/connectors/sqlite3.mjs b/dist/connectors/sqlite3.mjs
+index 659437fd6e58658c6823163c8223a11b95b377e1..edbe2d44882a02fc20bef046486dce60f20d9cc4 100644
+--- a/dist/connectors/sqlite3.mjs
++++ b/dist/connectors/sqlite3.mjs
+@@ -33,25 +33,41 @@ export default function nodeSqlite3Connector(opts) {
+     dialect: "sqlite",
+     getInstance: () => getDB(),
+     exec: (sql) => query(sql),
+-    prepare: (sql) => new StatementWrapper(getDB().prepare(sql))
++    prepare: (sql) => {
++      const stm = new StatementWrapper();
++      stm._statement = getDB().prepare(sql, stm._prepareCallback.bind(stm));
++      return stm;
++    }
+   };
+ }
+ class StatementWrapper extends BoundableStatement {
++  _callback;
++  _prepareCallback(err, res) {
++    if (this._callback && err) {
++      return this._callback(err, res);
++    }
++  }
++  constructor() {
++    super(void 0);
++  }
+   async all(...params) {
+     const rows = await new Promise((resolve2, reject) => {
+-      this._statement.all(...params, (err, rows2) => err ? reject(err) : resolve2(rows2));
++      this._callback = (err, rows2) => err ? reject(err) : resolve2(rows2);
++      this._statement.all(...params, this._callback);
+     });
+     return rows;
+   }
+   async run(...params) {
+     await new Promise((resolve2, reject) => {
+-      this._statement.run(...params, (err) => err ? reject(err) : resolve2());
++      this._callback = (err) => err ? reject(err) : resolve2();
++      this._statement.run(...params, this._callback);
+     });
+     return { success: true };
+   }
+   async get(...params) {
+     const row = await new Promise((resolve2, reject) => {
+-      this._statement.get(...params, (err, row2) => err ? reject(err) : resolve2(row2));
++      this._callback = (err, row2) => err ? reject(err) : resolve2(row2);
++      this._statement.get(...params, this._callback);
+     });
+     return row;
+   }
