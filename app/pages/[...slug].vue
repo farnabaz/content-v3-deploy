@@ -25,5 +25,7 @@ if (!page.value) {
     :value="page"
   />
   <hr/>
+  <pre>description: {{  page?.description }}</pre>
+  <hr/>
   <pre>{{ buildInfo }}</pre>
 </template>
