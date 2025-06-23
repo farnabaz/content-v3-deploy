@@ -11,6 +11,11 @@ export default defineNuxtConfig({
       dependencies: packageJson.dependencies,
     }
   },
+  content: {
+    experimental: {
+      nativeSqlite: true,
+    }
+  },
   devtools: { enabled: true },
   future: {
     compatibilityVersion: 4,
