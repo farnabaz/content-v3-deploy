@@ -2,7 +2,7 @@
 
 A live example of the Nuxt Content v3 deployment. 
 
-Here are the list of deployments on the popular platforms:
+Here are the list of deployments on the popular platforms: 
 
 | Platform                       | URL                                     |
 |--------------------------------|-----------------------------------------|
