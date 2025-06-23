@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "@nuxt/content": "https://pkg.pr.new/@nuxt/content@7aaad59",
-    "nuxt": "^3.16.2"
+    "nuxt": "^3.17.5"
   }
 }
