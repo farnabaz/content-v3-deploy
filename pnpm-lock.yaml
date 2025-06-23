@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  db0:
+    hash: a2be9e2c72e5aea1ee950a20d6439e90dececcee94b707f90ca1323762a28a1d
+    path: patches/db0.patch
+
 importers:
 
   .:
@@ -13,7 +18,7 @@ importers:
         version: https://pkg.pr.new/@nuxt/content@7aaad59(better-sqlite3@11.9.1)(magicast@0.3.5)
       nuxt:
         specifier: ^3.17.5
-        version: 3.17.5(@parcel/watcher@2.5.1)(@types/node@22.13.1)(better-sqlite3@11.9.1)(db0@0.3.2(better-sqlite3@11.9.1))(ioredis@5.6.1)(magicast@0.3.5)(rollup@4.44.0)(terser@5.38.2)(typescript@5.8.3)(vite@6.3.5(@types/node@22.13.1)(jiti@2.4.2)(terser@5.38.2)(yaml@2.7.1))(yaml@2.7.1)
+        version: 3.17.5(@parcel/watcher@2.5.1)(@types/node@22.13.1)(better-sqlite3@11.9.1)(db0@0.3.2(patch_hash=a2be9e2c72e5aea1ee950a20d6439e90dececcee94b707f90ca1323762a28a1d)(better-sqlite3@11.9.1))(ioredis@5.6.1)(magicast@0.3.5)(rollup@4.44.0)(terser@5.38.2)(typescript@5.8.3)(vite@6.3.5(@types/node@22.13.1)(jiti@2.4.2)(terser@5.38.2)(yaml@2.7.1))(yaml@2.7.1)
 
 packages:
 
@@ -4886,7 +4891,7 @@ snapshots:
       c12: 3.0.4(magicast@0.3.5)
       chokidar: 4.0.3
       consola: 3.4.2
-      db0: 0.3.2(better-sqlite3@11.9.1)
+      db0: 0.3.2(patch_hash=a2be9e2c72e5aea1ee950a20d6439e90dececcee94b707f90ca1323762a28a1d)(better-sqlite3@11.9.1)
       defu: 6.1.4
       destr: 2.0.5
       git-url-parse: 16.1.0
@@ -6318,7 +6323,7 @@ snapshots:
 
   data-uri-to-buffer@4.0.1: {}
 
-  db0@0.3.2(better-sqlite3@11.9.1):
+  db0@0.3.2(patch_hash=a2be9e2c72e5aea1ee950a20d6439e90dececcee94b707f90ca1323762a28a1d)(better-sqlite3@11.9.1):
     optionalDependencies:
       better-sqlite3: 11.9.1
 
@@ -7730,7 +7735,7 @@ snapshots:
       cookie-es: 2.0.0
       croner: 9.0.0
       crossws: 0.3.5
-      db0: 0.3.2(better-sqlite3@11.9.1)
+      db0: 0.3.2(patch_hash=a2be9e2c72e5aea1ee950a20d6439e90dececcee94b707f90ca1323762a28a1d)(better-sqlite3@11.9.1)
       defu: 6.1.4
       destr: 2.0.5
       dot-prop: 9.0.0
@@ -7776,7 +7781,7 @@ snapshots:
       unenv: 2.0.0-rc.17
       unimport: 5.0.1
       unplugin-utils: 0.2.4
-      unstorage: 1.16.0(db0@0.3.2(better-sqlite3@11.9.1))(ioredis@5.6.1)
+      unstorage: 1.16.0(db0@0.3.2(patch_hash=a2be9e2c72e5aea1ee950a20d6439e90dececcee94b707f90ca1323762a28a1d)(better-sqlite3@11.9.1))(ioredis@5.6.1)
       untyped: 2.0.0
       unwasm: 0.3.9
       youch: 4.1.0-beta.8
@@ -7892,7 +7897,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  nuxt@3.17.5(@parcel/watcher@2.5.1)(@types/node@22.13.1)(better-sqlite3@11.9.1)(db0@0.3.2(better-sqlite3@11.9.1))(ioredis@5.6.1)(magicast@0.3.5)(rollup@4.44.0)(terser@5.38.2)(typescript@5.8.3)(vite@6.3.5(@types/node@22.13.1)(jiti@2.4.2)(terser@5.38.2)(yaml@2.7.1))(yaml@2.7.1):
+  nuxt@3.17.5(@parcel/watcher@2.5.1)(@types/node@22.13.1)(better-sqlite3@11.9.1)(db0@0.3.2(patch_hash=a2be9e2c72e5aea1ee950a20d6439e90dececcee94b707f90ca1323762a28a1d)(better-sqlite3@11.9.1))(ioredis@5.6.1)(magicast@0.3.5)(rollup@4.44.0)(terser@5.38.2)(typescript@5.8.3)(vite@6.3.5(@types/node@22.13.1)(jiti@2.4.2)(terser@5.38.2)(yaml@2.7.1))(yaml@2.7.1):
     dependencies:
       '@nuxt/cli': 3.25.1(magicast@0.3.5)
       '@nuxt/devalue': 2.0.2
@@ -7949,7 +7954,7 @@ snapshots:
       unimport: 5.0.1
       unplugin: 2.3.5
       unplugin-vue-router: 0.12.0(vue-router@4.5.1(vue@3.5.17(typescript@5.8.3)))(vue@3.5.17(typescript@5.8.3))
-      unstorage: 1.16.0(db0@0.3.2(better-sqlite3@11.9.1))(ioredis@5.6.1)
+      unstorage: 1.16.0(db0@0.3.2(patch_hash=a2be9e2c72e5aea1ee950a20d6439e90dececcee94b707f90ca1323762a28a1d)(better-sqlite3@11.9.1))(ioredis@5.6.1)
       untyped: 2.0.0
       vue: 3.5.17(typescript@5.8.3)
       vue-bundle-renderer: 2.1.1
@@ -9242,7 +9247,7 @@ snapshots:
       picomatch: 4.0.2
       webpack-virtual-modules: 0.6.2
 
-  unstorage@1.16.0(db0@0.3.2(better-sqlite3@11.9.1))(ioredis@5.6.1):
+  unstorage@1.16.0(db0@0.3.2(patch_hash=a2be9e2c72e5aea1ee950a20d6439e90dececcee94b707f90ca1323762a28a1d)(better-sqlite3@11.9.1))(ioredis@5.6.1):
     dependencies:
       anymatch: 3.1.3
       chokidar: 4.0.3
@@ -9253,7 +9258,7 @@ snapshots:
       ofetch: 1.4.1
       ufo: 1.6.1
     optionalDependencies:
-      db0: 0.3.2(better-sqlite3@11.9.1)
+      db0: 0.3.2(patch_hash=a2be9e2c72e5aea1ee950a20d6439e90dececcee94b707f90ca1323762a28a1d)(better-sqlite3@11.9.1)
       ioredis: 5.6.1
 
   untun@0.1.3:

@@ -1,0 +1,15 @@
+diff --git a/dist/connectors/better-sqlite3.mjs b/dist/connectors/better-sqlite3.mjs
+index 681b8a92b902e62ac9372dd68832dd91428b5bb6..f8725ea28ac6312f4a4330e05996f667f51568b5 100644
+--- a/dist/connectors/better-sqlite3.mjs
++++ b/dist/connectors/better-sqlite3.mjs
+@@ -16,7 +16,9 @@ export default function sqliteConnector(opts) {
+       opts.cwd || ".",
+       opts.path || `.data/${opts.name || "db"}.sqlite3`
+     );
+-    mkdirSync(dirname(filePath), { recursive: true });
++    if (dirname(filePath) !== "/tmp") {
++      mkdirSync(dirname(filePath), { recursive: true });
++    }
+     _db = new Database(filePath);
+     return _db;
+   };
